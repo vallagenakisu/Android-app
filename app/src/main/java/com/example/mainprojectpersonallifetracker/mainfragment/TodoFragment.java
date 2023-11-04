@@ -16,8 +16,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.mainprojectpersonallifetracker.R;
+import com.example.mainprojectpersonallifetracker.adapters.dialogueboxTodo;
 import com.example.mainprojectpersonallifetracker.adapters.todoadapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +32,7 @@ public class TodoFragment extends Fragment {
     private TextView text;
     private EditText TaskEdit;
     private List<String> mylist;
+    private DatabaseReference databaseReference;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,7 +41,6 @@ public class TodoFragment extends Fragment {
         return view;
 
     }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -51,13 +54,16 @@ public class TodoFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
-
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String task = TaskEdit.getText().toString();
-                mylist.add(task);
+            public void onClick(View v)
+            {
+                dialogueboxTodo dialogueboxTodo = new dialogueboxTodo() ;
+                dialogueboxTodo.show(getChildFragmentManager(),"TaskAdd");
+
+
                 adapter.notifyDataSetChanged();
 
             }
