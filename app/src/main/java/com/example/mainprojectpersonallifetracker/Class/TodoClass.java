@@ -4,6 +4,10 @@ public class TodoClass {
     private String task;
     private int status;
 
+    public TodoClass()
+    {
+
+    }
     public TodoClass(String task, int status) {
         this.task = task;
         this.status = status;
