@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "907271791061",
-    "project_id": "personal-life-tracker-9f5bc",
-    "storage_bucket": "personal-life-tracker-9f5bc.appspot.com"
+    "project_number": "249619522350",
+    "firebase_url": "https://main-c9eb0-default-rtdb.firebaseio.com",
+    "project_id": "main-c9eb0",
+    "storage_bucket": "main-c9eb0.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:907271791061:android:4f2f56e4f13f3b7c8d1d5c",
+        "mobilesdk_app_id": "1:249619522350:android:796436235a1651bca890bf",
         "android_client_info": {
           "package_name": "com.example.mainprojectpersonallifetracker"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB3DVxHgptnpfksPqwC2c3DaTTARk8fvlo"
+          "current_key": "AIzaSyA8ovpcX6e0LgF2HSOEdo8PC1CWJbtiimk"
         }
       ],
       "services": {

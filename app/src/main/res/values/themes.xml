@@ -6,4 +6,5 @@
     </style>
 
     <style name="Theme.MainProjectPersonalLifeTracker" parent="Base.Theme.MainProjectPersonalLifeTracker" />
+
 </resources>
