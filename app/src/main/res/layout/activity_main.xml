@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/loginpage"
+    android:orientation="vertical"
+
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#23082249"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:fontFamily="@font/hind_siliguri_bold"
+            android:text="Lets Begin Your Journey"
+            android:textSize="30sp" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="60dp"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/username"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="UserName"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#223754"
+                    android:textColorHighlight="#223754"
+                    android:textColorHint="#223754"
+                    android:textColorLink="#223754" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Password"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:textColor="#223754"
+                    android:textColorHighlight="#223754"
+                    android:textColorLink="#223754" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="230dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif"
+                android:text="Forget Password?"
+                android:textColor="#162740"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:id="@+id/forgot"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/Login"
+                style="@style/ThemeOverlay.Material3.Button.TonalButton"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="sans-serif-medium"
+                android:text="Login"
+                android:textSize="18sp"
+                android:visibility="visible"
+                app:backgroundTint="#E1006CAB">
+
+            </com.google.android.material.button.MaterialButton>
+
+            <androidx.appcompat.widget.AppCompatCheckedTextView
+                style="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="86dp"
+                android:text="Don't Have an Account?"
+                android:textColor="#F9F8F8"
+                android:textSize="18dp"
+                android:id="@+id/dont"
+                />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#575ea3"
+        app:cardUseCompatPadding="true"
+        style="@style/Widget.Material3.CardView.Elevated"
+        >
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="8dp"
+            android:text="To Do Task"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            app:useMaterialThemeColors="true" />
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
