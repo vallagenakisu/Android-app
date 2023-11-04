@@ -32,7 +32,6 @@ public class TodoFragment extends Fragment {
     private TextView text;
     private EditText TaskEdit;
     private List<String> mylist;
-    private DatabaseReference databaseReference;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,7 +53,6 @@ public class TodoFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
-        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,11 +60,11 @@ public class TodoFragment extends Fragment {
             {
                 dialogueboxTodo dialogueboxTodo = new dialogueboxTodo() ;
                 dialogueboxTodo.show(getChildFragmentManager(),"TaskAdd");
-
-
-                adapter.notifyDataSetChanged();
-
             }
+
+            DatabaseReference reference =  FirebaseDatabase.getInstance().getReference().child("Todo").child("Tasks");
+
+
 
     });
 
