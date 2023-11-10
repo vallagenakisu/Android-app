@@ -3,6 +3,8 @@ package com.example.mainprojectpersonallifetracker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class SignUp extends AppCompatActivity {
 
