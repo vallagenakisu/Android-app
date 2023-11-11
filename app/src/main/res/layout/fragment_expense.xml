@@ -3,14 +3,189 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainfragment.expenseFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".mainfragment.expenseFragment"
+    android:background="@color/white"
 
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black"
+    >
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Expense Fragment"
-        android:textSize="40dp"
-        android:gravity="center_horizontal|center_vertical"
+        android:layout_height="wrap_content"
+        android:text="Your Expense All here"
+        android:textColor="@color/white"
+        android:textSize="38dp"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/helveticalt"
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Friday,Novermber 10"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:layout_margin="15dp"
+        android:fontFamily="@font/helveticalt"
+        />
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#333333"
+        app:cardCornerRadius="15dp"
+        app:cardUseCompatPadding="true"
+        android:layout_margin="10dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Previous Balance -"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="@font/helveticalt"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10,000 TK"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="@font/helveticalt"
+                    android:layout_marginHorizontal="60dp"
+                    android:id="@+id/previousBalance"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Your Last Transaction-"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="@font/helveticalt"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10,000 TK"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="@font/helveticalt"
+                    android:layout_marginHorizontal="35dp"
+                    android:id="@+id/lastTransaction"
+                    />
+
+            </LinearLayout>
+
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                app:dividerColor="@color/black"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your Current Balance-"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="@font/helveticalt"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9,500 TK"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="@font/helveticalt"
+                    android:layout_marginHorizontal="35dp"
+                    android:id="@+id/currentBalance"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:backgroundTint="#24C46D"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:text="Add"
+        android:textSize="20dp"
+        android:fontFamily="@font/helveticalt"
+        android:id="@+id/addExpense"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:backgroundTint="#24C46D"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:text="Status"
+        android:textSize="20dp"
+        android:fontFamily="@font/helveticalt"
+        android:id="@+id/status"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transaction History"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:fontFamily="@font/helveticalt"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recycler"
+        />
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
+
+
 
 </FrameLayout>

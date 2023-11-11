@@ -3,10 +3,25 @@ package com.example.mainprojectpersonallifetracker.Class;
 public class TodoClass {
     private String task;
     private int status;
+    private String id;
 
-    public TodoClass(String task, int status) {
+
+    public TodoClass()
+    {
+
+    }
+    public TodoClass(String task, int status , String id) {
         this.task = task;
         this.status = status;
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTask() {
