@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MainProjectPersonalLifeTracker"
         tools:targetApi="31">
         <activity
+            android:name=".adapters.ExpenseAdapter"
+            android:exported="false" />
+        <activity
             android:name=".mainfragment.fragmentmain"
             android:exported="false" />
         <activity
