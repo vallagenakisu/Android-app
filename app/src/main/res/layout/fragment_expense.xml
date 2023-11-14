@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="Your Expense All here"
         android:textColor="@color/white"
-        android:textSize="38dp"
+        android:textSize="35dp"
         android:layout_margin="10dp"
         android:textStyle="bold"
         android:fontFamily="@font/helveticalt"
@@ -29,9 +29,28 @@
         android:layout_height="wrap_content"
         android:text="Friday,Novermber 10"
         android:textColor="@color/white"
-        android:textSize="35dp"
+        android:textSize="25dp"
         android:layout_margin="15dp"
         android:fontFamily="@font/helveticalt"
+        android:id="@+id/date"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Add Balance"
+        android:textColorHint="@color/white"
+        android:textSize="15dp"
+        android:layout_marginLeft="15dp"
+        android:fontFamily="@font/helveticalt"
+        android:id="@+id/addBalance"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:textSize="15dp"
+        android:backgroundTint="#24C46D"
+        android:id="@+id/addButton"
         />
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -50,27 +69,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+
                 >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Previous Balance -"
                     android:textColor="@color/white"
-                    android:textSize="18dp"
+                    android:textSize="17dp"
                     android:layout_marginLeft="8dp"
                     android:fontFamily="@font/helveticalt"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10,000 TK"
+                    android:text="10000"
                     android:textColor="@color/white"
-                    android:textSize="18dp"
-                    android:layout_marginLeft="8dp"
+                    android:textSize="17dp"
+                    android:layout_marginLeft="58dp"
                     android:fontFamily="@font/helveticalt"
-                    android:layout_marginHorizontal="60dp"
                     android:id="@+id/previousBalance"
                     />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TK"
+                    android:textColor="@color/white"
+                    android:textSize="17dp"
+                    android:fontFamily="@font/helveticalt"
+                    />
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -82,20 +112,27 @@
                     android:layout_height="wrap_content"
                     android:text="Your Last Transaction-"
                     android:textColor="@color/white"
-                    android:textSize="18dp"
+                    android:textSize="17dp"
                     android:layout_marginLeft="8dp"
                     android:fontFamily="@font/helveticalt"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10,000 TK"
+                    android:text="10000"
                     android:textColor="@color/white"
-                    android:textSize="18dp"
-                    android:layout_marginLeft="8dp"
+                    android:textSize="17dp"
+                    android:layout_marginLeft="32dp"
                     android:fontFamily="@font/helveticalt"
-                    android:layout_marginHorizontal="35dp"
                     android:id="@+id/lastTransaction"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TK"
+                    android:textColor="@color/white"
+                    android:textSize="17dp"
+                    android:fontFamily="@font/helveticalt"
                     />
 
             </LinearLayout>
@@ -112,26 +149,36 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Your Current Balance-"
                     android:textColor="@color/white"
-                    android:textSize="18dp"
+                    android:textSize="17dp"
                     android:layout_marginLeft="8dp"
                     android:fontFamily="@font/helveticalt"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="9,500 TK"
+                    android:text="9500"
                     android:textColor="@color/white"
-                    android:textSize="18dp"
-                    android:layout_marginLeft="8dp"
+                    android:textSize="17dp"
+                    android:layout_marginLeft="35dp"
                     android:fontFamily="@font/helveticalt"
-                    android:layout_marginHorizontal="35dp"
                     android:id="@+id/currentBalance"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TK"
+                    android:textColor="@color/white"
+                    android:textSize="17dp"
+                    android:fontFamily="@font/helveticalt"
+
                     />
             </LinearLayout>
 
@@ -174,15 +221,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/recycler"
         />
-
-
-
-
-
-
-
-
-
 
 </LinearLayout>
 
