@@ -102,18 +102,6 @@ public class expenseFragment extends Fragment {
         date.setText(currentDate);
 
 
-        //addbalance from editText and send Mainbalance to database
-
-//        addBalance.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String Balance = balance.getText().toString();
-//                BalanceClass balanceClass = new BalanceClass(Integer.parseInt(Balance), Integer.parseInt(Balance), 0);
-//                reference1.setValue(balanceClass);
-//            }
-//        });
-
-
         // initialize previous balance and currentbalance from database
         reference1.addValueEventListener(new ValueEventListener() {
             @Override
@@ -167,15 +155,49 @@ public class expenseFragment extends Fragment {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();
                 ExpenseClass item = mylist.get(position);
-                switch (direction){
+                switch (direction)
+                {
+
                     case ItemTouchHelper.LEFT:
-                        reference.child(item.getId()).removeValue();
-                        adapter.notifyDataSetChanged();
+                        reference1.addListenerForSingleValueEvent(new ValueEventListener()
+                        {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                BalanceClass balanceClass = snapshot.getValue(BalanceClass.class);
+                                int currentBalance = balanceClass.getCurrentBalance() + item.getAmount();
+                                int last = balanceClass.getLastTransaction();
+                                BalanceClass newbalanceClass = new BalanceClass(currentBalance, currentBalance, last);
+                                reference1.setValue(newbalanceClass);
+                                reference.child(item.getId()).removeValue();
+                                adapter.notifyDataSetChanged();
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                         break;
 
                     case ItemTouchHelper.RIGHT:
-                        reference.child(item.getId()).removeValue();
-                        adapter.notifyDataSetChanged();
+                        reference1.addListenerForSingleValueEvent(new ValueEventListener()
+                        {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                BalanceClass balanceClass = snapshot.getValue(BalanceClass.class);
+                                int currentBalance = balanceClass.getCurrentBalance() + item.getAmount();
+                                int last = balanceClass.getLastTransaction();
+                                BalanceClass newbalanceClass = new BalanceClass(currentBalance, currentBalance, last);
+                                reference1.setValue(newbalanceClass);
+                                reference.child(item.getId()).removeValue();
+                                adapter.notifyDataSetChanged();
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
 
                         break;
                 }
