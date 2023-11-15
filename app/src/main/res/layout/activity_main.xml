@@ -34,40 +34,29 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="60dp"
             android:orientation="vertical">
+            <EditText
 
-            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/username"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="UserName"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="#223754"
-                    android:textColorHighlight="#223754"
-                    android:textColorHint="#223754"
-                    android:textColorLink="#223754" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+                android:textColor="#223754"
+                android:textColorHighlight="#223754"
+                android:textColorHint="#223754"
+                android:textColorLink="#223754"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/Password"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
                 android:hint="Password"
-                app:passwordToggleEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
-                    android:textColor="#223754"
-                    android:textColorHighlight="#223754"
-                    android:textColorLink="#223754" />
-            </com.google.android.material.textfield.TextInputLayout>
+                app:passwordToggleEnabled="true"
+                android:textColor="#223754"
+                android:textColorHighlight="#223754"
+                android:textColorLink="#223754"
+                />
 
             <TextView
                 android:layout_width="wrap_content"

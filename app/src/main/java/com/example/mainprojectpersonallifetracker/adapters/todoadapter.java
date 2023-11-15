@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
@@ -50,6 +52,8 @@ public class todoadapter extends RecyclerView.Adapter<todoadapter.myadapter> {
     @Override
     public void onBindViewHolder( myadapter holder, int position)
     {
+        Animation animation = AnimationUtils.loadAnimation(context,R.anim.fadeout);
+        holder.itemView.startAnimation(animation);
         TodoClass item = mylist.get(position);
         holder.checkBox.setText(item.getTask());
         holder.checkBox.setChecked(item.getStatus()==1);

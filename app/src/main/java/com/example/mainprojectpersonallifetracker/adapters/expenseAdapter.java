@@ -4,6 +4,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,6 +37,9 @@ public class expenseAdapter extends RecyclerView.Adapter<expenseAdapter.myadapte
 
     @Override
     public void onBindViewHolder(@NonNull expenseAdapter.myadapter holder, int position) {
+        long a = 10000;
+        Animation animation = AnimationUtils.loadAnimation(context,R.anim.fadeout);
+        holder.itemView.startAnimation(animation);
         ExpenseClass item = mylist.get(position);
         holder.amount.setText(String.valueOf(item.getAmount()));
         holder.description.setText(item.getDescription());
