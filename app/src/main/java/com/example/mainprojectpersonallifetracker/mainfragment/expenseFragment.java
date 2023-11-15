@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +23,7 @@ import android.widget.TextView;
 
 import com.example.mainprojectpersonallifetracker.Class.BalanceClass;
 import com.example.mainprojectpersonallifetracker.Class.ExpenseClass;
+import com.example.mainprojectpersonallifetracker.Class.TodoClass;
 import com.example.mainprojectpersonallifetracker.R;
 import com.example.mainprojectpersonallifetracker.StatusActivity;
 import com.example.mainprojectpersonallifetracker.adapters.expenseAdapter;
@@ -93,6 +95,7 @@ public class expenseFragment extends Fragment {
         DatabaseReference reference1 = reference.child("MainBalance");
 
 
+
         //setting up calendar
         Calendar calendar = Calendar.getInstance();
         String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
@@ -101,14 +104,16 @@ public class expenseFragment extends Fragment {
 
         //addbalance from editText and send Mainbalance to database
 
-        addBalance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Balance = balance.getText().toString();
-                BalanceClass balanceClass = new BalanceClass(Integer.parseInt(Balance), Integer.parseInt(Balance), 0);
-                reference1.setValue(balanceClass);
-            }
-        });
+//        addBalance.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String Balance = balance.getText().toString();
+//                BalanceClass balanceClass = new BalanceClass(Integer.parseInt(Balance), Integer.parseInt(Balance), 0);
+//                reference1.setValue(balanceClass);
+//            }
+//        });
+
+
         // initialize previous balance and currentbalance from database
         reference1.addValueEventListener(new ValueEventListener() {
             @Override
@@ -117,6 +122,15 @@ public class expenseFragment extends Fragment {
                 PreviousBalance.setText(String.valueOf(balanceClass.getPreviousBalance()));
                 CurrentBalance.setText(String.valueOf(balanceClass.getCurrentBalance()));
                 LastTransaction.setText(String.valueOf(balanceClass.getLastTransaction()));
+                addBalance.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String Balance =  balance.getText().toString();
+                        String Currentbalance = Integer.parseInt(Balance) + Integer.parseInt(CurrentBalance.getText().toString()) + "";
+                        BalanceClass balanceClass = new BalanceClass(Integer.parseInt(Currentbalance), Integer.parseInt(Currentbalance), Integer.parseInt("0"));
+                        reference1.setValue(balanceClass);
+                    }
+                });
             }
 
             @Override
@@ -142,7 +156,36 @@ public class expenseFragment extends Fragment {
 
             }
         });
+        /// on swipe method
+        ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
 
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                ExpenseClass item = mylist.get(position);
+                switch (direction){
+                    case ItemTouchHelper.LEFT:
+                        reference.child(item.getId()).removeValue();
+                        adapter.notifyDataSetChanged();
+                        break;
+
+                    case ItemTouchHelper.RIGHT:
+                        reference.child(item.getId()).removeValue();
+                        adapter.notifyDataSetChanged();
+
+                        break;
+                }
+
+
+
+            }
+        };
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
         //add button click and showing dialogue
         expenseButton.setOnClickListener(new View.OnClickListener() {
@@ -181,7 +224,8 @@ public class expenseFragment extends Fragment {
                                 String type = spinner.getSelectedItem().toString();
                                 String amount1 = amount.getText().toString();
                                 String description1 = description.getText().toString();
-                                ExpenseClass expenseClass = new ExpenseClass(Integer.parseInt(amount1), description1, type);
+                                String key = reference.push().getKey();
+                                ExpenseClass expenseClass = new ExpenseClass(Integer.parseInt(amount1), description1, type,key);
 
                                 String PB = PreviousBalance.getText().toString();
                                 String CB = CurrentBalance.getText().toString();
@@ -192,7 +236,7 @@ public class expenseFragment extends Fragment {
 
 
                                 reference1.setValue(newbalanceClass);
-                                reference.push().setValue(expenseClass);
+                                reference.child(key).setValue(expenseClass);
 
                             }
                         })
