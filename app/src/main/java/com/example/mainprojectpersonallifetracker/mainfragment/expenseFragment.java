@@ -1,6 +1,7 @@
 package com.example.mainprojectpersonallifetracker.mainfragment;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ import android.widget.TextView;
 import com.example.mainprojectpersonallifetracker.Class.BalanceClass;
 import com.example.mainprojectpersonallifetracker.Class.ExpenseClass;
 import com.example.mainprojectpersonallifetracker.R;
+import com.example.mainprojectpersonallifetracker.StatusActivity;
 import com.example.mainprojectpersonallifetracker.adapters.expenseAdapter;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.database.DataSnapshot;
@@ -70,6 +72,14 @@ public class expenseFragment extends Fragment {
         date = view.findViewById(R.id.date);
         balance = view.findViewById(R.id.addBalance);
         addBalance = view.findViewById(R.id.addButton);
+        statusButton= view.findViewById(R.id.status);
+        statusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent  = new Intent(getContext(), StatusActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //setting up recycler view
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

@@ -18,38 +18,26 @@
         android:textSize="30sp"
         />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:hint="Enter Full Name"
-            android:id="@+id/fullname"
-            >
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+   <EditText
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="20dp"
+       android:layout_marginRight="40dp"
+       style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+       android:hint="Enter Email"
+       android:id="@+id/email"
+       />
 
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="350dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/password"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:hint="Enter Password"
-            app:passwordToggleEnabled="true"
-            >
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+    android:layout_width="350dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="20dp"
+    android:layout_height="wrap_content"
+    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+    android:hint="Enter Password"
+    app:passwordToggleEnabled="true"
+        android:id="@+id/password"
+    />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="350dp"
